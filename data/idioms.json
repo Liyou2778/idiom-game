@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "answer": "一针见血",
+    "difficulty": 1,
+    "image": "images/1.png",
+    "hint": "跟医疗有关"
+  },
+  {
+    "id": 2,
+    "answer": "对牛弹琴",
+    "difficulty": 1,
+    "image": "images/2.png",
+    "hint": "跟听众有关"
+  },
+  {
+    "id": 3,
+    "answer": "画蛇添足",
+    "difficulty": 2,
+    "image": "images/3.png",
+    "hint": "多余的操作"
+  },
+  {
+    "id": 4,
+    "answer": "守株待兔",
+    "difficulty": 2,
+    "image": "images/4.png",
+    "hint": "不劳而获"
+  },
+  {
+    "id": 5,
+    "answer": "亡羊补牢",
+    "difficulty": 2,
+    "image": "images/5.png",
+    "hint": "为时未晚"
+  },
+  {
+    "id": 6,
+    "answer": "杯弓蛇影",
+    "difficulty": 3,
+    "image": "images/6.png",
+    "hint": "虚幻的恐惧"
+  },
+  {
+    "id": 7,
+    "answer": "掩耳盗铃",
+    "difficulty": 3,
+    "image": "images/7.png",
+    "hint": "自欺欺人"
+  },
+  {
+    "id": 8,
+    "answer": "刻舟求剑",
+    "difficulty": 3,
+    "image": "images/8.png",
+    "hint": "不懂变通"
+  },
+  {
+    "id": 9,
+    "answer": "买椟还珠",
+    "difficulty": 4,
+    "image": "images/9.png",
+    "hint": "取舍不当"
+  },
+  {
+    "id": 10,
+    "answer": "叶公好龙",
+    "difficulty": 4,
+    "image": "images/10.png",
+    "hint": "表面喜欢"
+  }
+]

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>看图猜成语</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🀄</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 开始画面 -->
+    <div id="start-screen" class="screen active">
+      <div class="start-content">
+        <div class="logo-area">
+          <div class="logo-icon">🀄</div>
+          <h1 class="game-title">看图猜成语</h1>
+          <p class="game-subtitle">二次元脑筋急转弯</p>
+        </div>
+        <div class="start-rules">
+          <div class="rule-item"><span class="rule-icon">🎯</span> 看图片猜四字成语</div>
+          <div class="rule-item"><span class="rule-icon">⏱</span> 答题越快得分越高</div>
+          <div class="rule-item"><span class="rule-icon">🔥</span> 连续答对额外加分</div>
+        </div>
+        <button id="start-btn" class="btn-primary">
+          <span>开始游戏</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 游戏画面 -->
+    <div id="game-screen" class="screen">
+      <div id="game-header">
+        <div class="header-left">
+          <div class="question-progress">
+            <span class="progress-current" id="question-num">1</span>
+            <span class="progress-sep">/</span>
+            <span class="progress-total" id="total-questions">10</span>
+            <span class="progress-label">题</span>
+          </div>
+        </div>
+        <div class="header-center">
+          <div class="header-stat">
+            <span class="stat-icon">⭐</span>
+            <span class="stat-value" id="score">0</span>
+            <span class="stat-label">分</span>
+          </div>
+          <div class="header-stat divider">
+            <span class="stat-icon">🔥</span>
+            <span class="stat-value" id="streak">0</span>
+            <span class="stat-label">连对</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="timer-display" id="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-value" id="time">0</span>
+            <span class="timer-unit">s</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-body">
+        <div id="image-container">
+          <img id="idiom-image" src="" alt="成语图片" />
+          <div id="image-loading" class="image-loading">
+            <div class="loading-spinner"></div>
+            <span>加载图片中...</span>
+          </div>
+        </div>
+
+        <div id="char-slots">
+          <div class="char-slot" data-index="0"></div>
+          <div class="char-slot" data-index="1"></div>
+          <div class="char-slot" data-index="2"></div>
+          <div class="char-slot" data-index="3"></div>
+        </div>
+
+        <div id="input-area">
+          <input type="text" id="answer-input" maxlength="4" placeholder="输入四字成语..." autocomplete="off" />
+          <button id="submit-btn" class="btn-submit">确认</button>
+          <button id="hint-btn" class="btn-hint" title="H key for hint">H</button>
+        </div>
+
+        <div id="feedback" class="feedback hidden"></div>
+      </div>
+    </div>
+
+    <!-- 结果画面 -->
+    <div id="result-screen" class="screen">
+      <div class="result-content">
+        <div class="result-header">
+          <div class="result-emoji" id="result-emoji">🎉</div>
+          <h2 class="result-title">游戏结束！</h2>
+        </div>
+
+        <div class="result-score-card">
+          <div class="final-score-label">最终得分</div>
+          <div class="final-score-value" id="final-score">0</div>
+        </div>
+
+        <div class="result-stats">
+          <div class="result-stat-item">
+            <div class="result-stat-icon">✅</div>
+            <div class="result-stat-info">
+              <span class="result-stat-value" id="result-correct">0</span>
+              <span class="result-stat-label">答对题数</span>
+            </div>
+          </div>
+          <div class="result-stat-item">
+            <div class="result-stat-icon">🔥</div>
+            <div class="result-stat-info">
+              <span class="result-stat-value" id="result-max-streak">0</span>
+              <span class="result-stat-label">最高连对</span>
+            </div>
+          </div>
+          <div class="result-stat-item">
+            <div class="result-stat-icon">⏱</div>
+            <div class="result-stat-info">
+              <span class="result-stat-value" id="result-avg-time">0</span>
+              <span class="result-stat-label">平均用时(s)</span>
+            </div>
+          </div>
+          <div class="result-stat-item">
+            <div class="result-stat-icon">🏆</div>
+            <div class="result-stat-info">
+              <span class="result-stat-value" id="result-total">10</span>
+              <span class="result-stat-label">总题数</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-details" id="result-details"></div>
+
+        <button id="restart-btn" class="btn-primary">
+          <span>再来一次</span>
+          <span class="btn-arrow">↻</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
